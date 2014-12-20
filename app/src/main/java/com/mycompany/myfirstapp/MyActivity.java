@@ -4,14 +4,27 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+
+import java.util.ArrayList;
+import java.util.Arrays;
 
 
 public class MyActivity extends ActionBarActivity {
+
+    private ListView searchResultView;
+    private ArrayAdapter<String> listAdapter ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my);
+
+        searchResultView = (ListView) findViewById(R.id.search_list_view);
+        ArrayList<String> players = new ArrayList<String>(Arrays.asList("Buenos Aires", "Córdoba", "La Plata"));
+        listAdapter = new ArrayAdapter<String>(this, R.layout.simplerow, players);
+        searchResultView.setAdapter(listAdapter);
     }
 
 
