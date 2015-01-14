@@ -3,15 +3,26 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".MyActivity" >
 
-    <item android:id="@+id/action_frnds"
-        android:icon="@drawable/ic_action_person"
-        android:title="@string/action_frnds"
+    <item android:id="@+id/action_signin"
+        android:icon="@drawable/ic_action_add_group"
+        android:title="SIGN IN/action_signin"
         app:showAsAction="ifRoom" />
 
     <item android:id="@+id/action_settings"
         android:title="@string/action_settings"
         android:orderInCategory="100"
         app:showAsAction="never" />
+
+    <item android:id="@+id/action_frnds"
+        android:title="Friends"
+        android:orderInCategory="100"
+        app:showAsAction="never" />
+
+    <item android:id="@+id/action_mgtop"
+        android:title="Manage Topics"
+        android:orderInCategory="100"
+        app:showAsAction="never" />
+
 
 
 </menu>

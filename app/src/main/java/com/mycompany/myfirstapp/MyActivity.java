@@ -102,7 +102,7 @@ public class MyActivity extends ActionBarActivity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
         switch (id){
-            case R.id.action_frnds:
+            case R.id.action_signin:
             sendMessage(this.getCurrentFocus());
                 return true;
             case R.id.action_settings:
