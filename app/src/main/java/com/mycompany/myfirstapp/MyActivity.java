@@ -103,7 +103,7 @@ public class MyActivity extends ActionBarActivity {
         int id = item.getItemId();
         switch (id){
             case R.id.action_signin:
-            sendMessage(this.getCurrentFocus());
+            signIn(this.getCurrentFocus());
                 return true;
             case R.id.action_settings:
                 return true;
@@ -121,5 +121,11 @@ public class MyActivity extends ActionBarActivity {
         intent.putExtra(EXTRA_MESSAGE, message);
         startActivity(intent);
     }
-
+    public void signIn(View view){
+        Intent intent = new Intent(this, SignInActivity.class);
+        EditText editText = (EditText) findViewById(R.id.edit_message);
+        String message = editText.getText().toString();
+        intent.putExtra(EXTRA_MESSAGE, message);
+        startActivity(intent);
+    }
  }

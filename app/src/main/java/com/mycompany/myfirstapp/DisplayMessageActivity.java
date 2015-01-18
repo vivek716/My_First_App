@@ -35,4 +35,5 @@ public class DisplayMessageActivity extends ActionBarActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
 }
