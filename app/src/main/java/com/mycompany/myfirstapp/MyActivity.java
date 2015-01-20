@@ -1,5 +1,6 @@
 package com.mycompany.myfirstapp;
 
+import android.app.DownloadManager;
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -10,6 +11,8 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
+
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -103,9 +106,13 @@ public class MyActivity extends ActionBarActivity {
         int id = item.getItemId();
         switch (id){
             case R.id.action_signin:
-            signIn(this.getCurrentFocus());
+                signIn(this.getCurrentFocus());
                 return true;
-            case R.id.action_settings:
+            case R.id.action_myaccount:
+                MyAcc(this.getCurrentFocus());
+                return true;
+            case R.id.action_frnds:
+                Friend(this.getCurrentFocus());
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -114,18 +121,29 @@ public class MyActivity extends ActionBarActivity {
     }
 
     public void sendMessage(View view){
+        string url = "http://leysa.net/users.json";
+        JsonObjectRequest jsObjRequest = new JsonObjectRequest
+                (DownloadManager.Request.method.GET, url,null,)
+
         //Toast.makeText(getApplicationContext(), "Test Test....", Toast.LENGTH_LONG).show();
-        Intent intent = new Intent(this, DisplayMessageActivity.class);
-        EditText editText = (EditText) findViewById(R.id.edit_message);
-        String message = editText.getText().toString();
-        intent.putExtra(EXTRA_MESSAGE, message);
-        startActivity(intent);
+        //Intent intent = new Intent(this, DisplayMessageActivity.class);
+        //EditText editText = (EditText) findViewById(R.id.edit_message);
+        //String message = editText.getText().toString();
+        //intent.putExtra(EXTRA_MESSAGE, message);
+        //startActivity(intent);
     }
     public void signIn(View view){
         Intent intent = new Intent(this, SignInActivity.class);
-        EditText editText = (EditText) findViewById(R.id.edit_message);
-        String message = editText.getText().toString();
-        intent.putExtra(EXTRA_MESSAGE, message);
+        //EditText editText = (EditText) findViewById(R.id.edit_message);
+        //String message = editText.getText().toString();
+        //intent.putExtra(EXTRA_MESSAGE, message);
         startActivity(intent);
     }
+    public void MyAcc(View view){
+        Intent intent = new Intent(this,MyAccount.class );
+        startActivity(intent);
+    }
+    public void Friend(View view){
+        Intent intent = new Intent(this,Friends.class );
+        startActivity(intent);
  }

@@ -24,6 +24,30 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.mycompany.myfirstapp.MyActivity" />
         </activity>
+        <activity
+            android:name=".SignInActivity"
+            android:label="@string/title_activity_signin_activity"
+            android:parentActivityName=".MyActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.mycompany.myfirstapp.MyActivity" />
+        </activity>
+        <activity
+            android:name=".MyAccount"
+            android:label="@string/title_activity_my_account"
+            android:parentActivityName=".MyActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.mycompany.myfirstapp.MyActivity" />
+        </activity>
+        <activity
+            android:name=".Friends"
+            android:label="@string/title_activity_friends"
+            android:parentActivityName=".MyActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.mycompany.myfirstapp.MyActivity" />
+        </activity>
     </application>
 
 </manifest>
