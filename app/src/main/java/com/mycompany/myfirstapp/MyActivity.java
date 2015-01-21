@@ -121,9 +121,9 @@ public class MyActivity extends ActionBarActivity {
     }
 
     public void sendMessage(View view){
-        string url = "http://leysa.net/users.json";
-        JsonObjectRequest jsObjRequest = new JsonObjectRequest
-                (DownloadManager.Request.method.GET, url,null,)
+        //String url = "http://leysa.net/users.json";
+        //JsonObjectRequest jsObjRequest = new JsonObjectRequest
+        //        (DownloadManager.Request.method.GET, url,null,);
 
         //Toast.makeText(getApplicationContext(), "Test Test....", Toast.LENGTH_LONG).show();
         //Intent intent = new Intent(this, DisplayMessageActivity.class);
@@ -143,7 +143,8 @@ public class MyActivity extends ActionBarActivity {
         Intent intent = new Intent(this,MyAccount.class );
         startActivity(intent);
     }
-    public void Friend(View view){
-        Intent intent = new Intent(this,Friends.class );
+    public void Friend(View view) {
+        Intent intent = new Intent(this, Friends.class);
         startActivity(intent);
+    }
  }
