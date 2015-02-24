@@ -4,12 +4,17 @@ import android.app.DownloadManager;
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
 import android.widget.Toast;
 
 import org.json.JSONObject;
@@ -122,10 +127,27 @@ public class MyActivity extends ActionBarActivity {
 
     public void sendMessage(View view){
         //String url = "http://leysa.net/users.json";
-        //JsonObjectRequest jsObjRequest = new JsonObjectRequest
-        //        (DownloadManager.Request.method.GET, url,null,);
+        EditText searchEditText = (EditText) findViewById(R.id.edit_message);
+        String pmse_url = "https://pmse.herokuapp.com/s?q" + searchEditText.getText();
+        Log.d("response", pmse_url);
+        JsonObjectRequest jsObjRequest = new JsonObjectRequest
+                (Request.Method.GET, pmse_url, null, new Response.Listener() {
 
-        //Toast.makeText(getApplicationContext(), "Test Test....", Toast.LENGTH_LONG).show();
+                    @Override
+                    public void onResponse(Object o) {
+                        Log.d("response", o.toString());
+                        Toast.makeText(getApplicationContext(), o.toString(), Toast.LENGTH_LONG).show();
+                    }
+                }, new Response.ErrorListener() {
+
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Log.d("response", "error occured");
+                        Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_LONG).show();
+                    }
+                });
+
+        Toast.makeText(getApplicationContext(), "Test Test....", Toast.LENGTH_LONG).show();
         //Intent intent = new Intent(this, DisplayMessageActivity.class);
         //EditText editText = (EditText) findViewById(R.id.edit_message);
         //String message = editText.getText().toString();
